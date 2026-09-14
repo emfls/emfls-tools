@@ -2,6 +2,32 @@
 
 ## 2026-09-14
 
+### Production 배포 조사
+
+- 저장소: `emfls/emfls-tools`
+- 브랜치: `main`
+- 빌드 명령: `npm run build`
+- 출력 디렉터리: `dist`
+- Astro 설정: `site: https://tools.emfls.com`, `output: static`
+- 검증된 커밋을 `origin/main`에 push함.
+
+### 검증
+
+- `npm run check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: 성공, 정적 16개 페이지 생성.
+- 로컬 산출물에서 Production canonical, OG, WebSite JSON-LD, BreadcrumbList JSON-LD, sitemap, robots.txt 확인.
+- 실제 `https://tools.emfls.com`은 현재 DNS가 해석되지 않아 HTTP 200, HTTPS, custom domain, Cloudflare Pages project, 404 status, 모바일 Production QA를 확인하지 못함.
+- Cloudflare Pages/Wrangler 설정 파일이나 연결된 프로젝트 정보는 저장소에 존재하지 않음.
+
+### 상태
+
+- `Production Deploy / QA`: TODO
+- 배포했다고 보고하지 않음.
+- 다음 수동 단계: Cloudflare Pages에서 `emfls-tools` 프로젝트를 `emfls/emfls-tools`의 `main`에 연결하고 `npm run build` / `dist`로 배포한 뒤 `tools.emfls.com` custom domain과 DNS를 연결해야 함.
+
+
+## 2026-09-14
+
 ### 작업
 
 - P2-3 기술 SEO·metadata·구조화 데이터·내부 링크 최종 개선.

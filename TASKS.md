@@ -40,3 +40,7 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 - [TODO] 모바일 입력·결과 흐름 점검
 - [TODO] 접근성 점검
 - [TODO] Core Web Vitals 점검 및 개선
+
+# 배포
+
+- [TODO] Production Deploy / QA — Cloudflare Pages 프로젝트 및 custom domain 연결 필요
