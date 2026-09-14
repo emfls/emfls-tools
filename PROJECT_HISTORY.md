@@ -2,6 +2,21 @@
 
 ## 2026-09-14
 
+### Production QA 재확인
+
+- Cloudflare Pages 설정 완료 후 `https://tools.emfls.com` Production QA 재시도.
+- `dig`에서 `tools.emfls.com`의 A/CNAME 응답이 없었고, 모든 HTTPS 요청이 `Could not resolve host`로 실패함.
+- 따라서 Homepage, Tool Hub, Tool 10개, 정책 페이지, 404 HTTP status, trailing slash, 실제 canonical/OG/JSON-LD, sitemap, robots, asset, 모바일 QA는 Production 기준으로 확인하지 못함.
+- 로컬 build 산출물 기준 canonical·OG·WebSite·BreadcrumbList·sitemap·robots 설정은 앞선 검증에서 정상 확인됨.
+
+### 상태
+
+- `Production Deploy / QA`: TODO 유지.
+- 정확한 blocker: `tools.emfls.com` DNS가 현재 해석되지 않음.
+- DNS가 전파된 뒤 Production URL을 재검증해야 함.
+
+## 2026-09-14
+
 ### Production 배포 조사
 
 - 저장소: `emfls/emfls-tools`
