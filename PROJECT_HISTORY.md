@@ -2,6 +2,20 @@
 
 ## 2026-09-14
 
+### Production QA 재시도
+
+- Cloudflare Pages 및 Custom Domain 연결 완료 안내 후 `https://tools.emfls.com`을 재점검.
+- 기본 DNS와 공용 리졸버 `1.1.1.1`, `8.8.8.8` 모두 A/CNAME 응답이 없었음.
+- HTTPS 요청 전체가 `Could not resolve host`로 실패하여 실제 페이지·Tool 10개·404·SEO·sitemap·robots·모바일 검증을 진행할 수 없었음.
+
+### 상태
+
+- `Production Deploy / QA`: TODO 유지.
+- 실제 Production 성공으로 간주하지 않음.
+- blocker: `tools.emfls.com` DNS 레코드가 외부 DNS에서 아직 조회되지 않음.
+
+## 2026-09-14
+
 ### Production QA 재확인
 
 - Cloudflare Pages 설정 완료 후 `https://tools.emfls.com` Production QA 재시도.
