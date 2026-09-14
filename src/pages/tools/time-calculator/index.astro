@@ -1,0 +1,13 @@
+---
+import ToolPage from '../../../components/ToolPage.astro';
+---
+<ToolPage eyebrow="시간 · Time" title="시간 계산기" description="기준 시간에 시간을 더하거나 빼서 결과 시간을 계산합니다.">
+  <section class="tool-card tool-card-single"><h2>시간 더하기 / 빼기</h2><form data-time-form><label>기준 시간<input name="time" type="time" required /></label><div class="time-adjust"><label>방향<select name="operation"><option value="add">더하기</option><option value="subtract">빼기</option></select></label><label>시간<input name="hours" type="number" min="0" step="1" inputmode="numeric" value="0" required /></label><label>분<input name="minutes" type="number" min="0" step="1" inputmode="numeric" value="0" required /></label></div><button type="submit">계산하기</button></form><output class="result result-stack" data-time-result aria-live="polite">시간을 입력해 보세요.</output></section>
+  <section class="tool-info"><h2>사용 방법</h2><ol><li>기준 시간을 선택합니다.</li><li>더하기 또는 빼기와 시간·분을 입력합니다.</li><li>계산 결과와 날짜 이동을 확인합니다.</li></ol><h2>계산 기준</h2><p>시간을 분 단위로 계산한 뒤 24시간 형식으로 표시합니다.</p><h2>예시</h2><p>10:30 + 2시간 45분은 13:15, 10:30 - 1시간은 09:30입니다. 23:30 + 2시간은 다음 날 01:30입니다.</p><h2>자주 묻는 질문</h2><p><strong>시간을 뺄 수도 있나요?</strong><br />방향을 ‘빼기’로 선택하면 됩니다.</p><p><strong>날짜까지 계산하나요?</strong><br />날짜 자체가 아닌 시간 결과와 다음 날·이전 날 여부만 표시합니다.</p></section>
+  <nav class="related-tools" aria-label="관련 도구"><h2>관련 도구</h2><a href="/tools/date-difference/">날짜 차이 계산기</a><a href="/tools/age/">나이 계산기</a></nav>
+</ToolPage>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-time-form]'); const result = document.querySelector<HTMLOutputElement>('[data-time-result]');
+  if (!form || !result) throw new Error('시간 계산기 요소를 찾을 수 없습니다.');
+  form.addEventListener('submit', (event) => { event.preventDefault(); const data = new FormData(form); const time = String(data.get('time')); const match = /^(\d{2}):(\d{2})$/.exec(time); const hours = Number(data.get('hours')); const minutes = Number(data.get('minutes')); if (!match || Number(match[1]) > 23 || Number(match[2]) > 59 || !Number.isInteger(hours) || !Number.isInteger(minutes) || hours < 0 || minutes < 0) { result.textContent = '시간과 분을 올바르게 입력해 주세요.'; return; } const base = Number(match[1]) * 60 + Number(match[2]); const delta = (hours * 60 + minutes) * (data.get('operation') === 'subtract' ? -1 : 1); const total = base + delta; const dayOffset = Math.floor(total / 1440); const normalized = ((total % 1440) + 1440) % 1440; const output = `${String(Math.floor(normalized / 60)).padStart(2, '0')}:${String(normalized % 60).padStart(2, '0')}`; result.textContent = `${output}${dayOffset > 0 ? ' (다음 날)' : dayOffset < 0 ? ' (이전 날)' : ''}`; });
+</script>

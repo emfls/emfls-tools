@@ -1,0 +1,14 @@
+---
+import ToolPage from '../../../components/ToolPage.astro';
+---
+<ToolPage eyebrow="계산 · Ratio" title="비율 계산기" description="두 수의 비율을 계산하고 정수 비율은 가장 간단한 형태로 줄여 봅니다.">
+  <section class="tool-card tool-card-single" aria-labelledby="ratio-title"><h2 id="ratio-title">A : B 비율 계산</h2><form data-ratio-form><div class="ratio-inputs"><label>A<input name="a" type="number" step="any" inputmode="decimal" placeholder="150" required /></label><span aria-hidden="true">:</span><label>B<input name="b" type="number" step="any" inputmode="decimal" placeholder="100" required /></label></div><button type="submit">계산하기</button></form><output class="result result-stack" data-ratio-result aria-live="polite">두 값을 입력해 보세요.</output></section>
+  <section class="tool-info"><h2>사용 방법</h2><ol><li>A와 B를 입력합니다.</li><li>계산하기를 눌러 비율을 확인합니다.</li></ol><h2>계산 기준</h2><p>정수 비율은 두 수의 최대공약수로 나누어 가장 간단한 형태로 표시합니다. A/B 값은 B가 0이 아닐 때만 계산합니다.</p><h2>예시</h2><p>150 : 100은 3 : 2로, 10 : 5는 2 : 1로 단순화됩니다.</p><h2>자주 묻는 질문</h2><p><strong>소수도 입력할 수 있나요?</strong><br />네. 소수는 원래 비율과 A/B 값을 표시합니다.</p><p><strong>0이 포함되면?</strong><br />B가 0이면 안내 메시지를 표시하고 A/B를 계산하지 않습니다.</p></section>
+  <nav class="related-tools" aria-label="관련 도구"><h2>관련 도구</h2><a href="/tools/percentage/">퍼센트 계산기</a><a href="/tools/discount/">할인율 계산기</a></nav>
+</ToolPage>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-ratio-form]'); const result = document.querySelector<HTMLOutputElement>('[data-ratio-result]'); const format = (value: number) => Number(value.toFixed(8)).toLocaleString('ko-KR');
+  if (!form || !result) throw new Error('비율 계산기 요소를 찾을 수 없습니다.');
+  const gcd = (x: number, y: number) => { let a = Math.abs(Math.round(x)); let b = Math.abs(Math.round(y)); while (b) [a, b] = [b, a % b]; return a || 1; };
+  form?.addEventListener('submit', (event) => { event.preventDefault(); const data = new FormData(form); const a = Number(data.get('a')); const b = Number(data.get('b')); if (!Number.isFinite(a) || !Number.isFinite(b)) { result.textContent = '유효한 숫자를 입력해 주세요.'; return; } if (b === 0) { result.textContent = 'B는 0일 수 없습니다.'; return; } const simplified = Number.isInteger(a) && Number.isInteger(b) ? `${a / gcd(a, b)} : ${b / gcd(a, b)}` : '소수 입력은 원래 비율로 표시합니다.'; result.innerHTML = `<span>입력한 비율 <strong>${format(a)} : ${format(b)}</strong></span><span>단순화된 비율 <strong>${simplified}</strong></span><span>A / B <strong>${format(a / b)}</strong></span>`; });
+</script>

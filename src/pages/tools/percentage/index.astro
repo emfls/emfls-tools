@@ -1,0 +1,20 @@
+---
+import ToolPage from '../../../components/ToolPage.astro';
+---
+<ToolPage eyebrow="계산 · Percentage" title="퍼센트 계산기" description="값의 퍼센트를 구하거나, 한 값이 다른 값의 몇 퍼센트인지 계산합니다.">
+  <div class="tool-grid">
+    <section class="tool-card" aria-labelledby="percent-of-title"><h2 id="percent-of-title">특정 값의 퍼센트</h2><form data-percent-of-form><label>기준값<input name="base" type="number" step="any" inputmode="decimal" placeholder="100" required /></label><label>퍼센트<input name="percent" type="number" step="any" inputmode="decimal" placeholder="20" required /></label><button type="submit">계산하기</button></form><output class="result" data-percent-of-result aria-live="polite">값을 입력해 보세요.</output></section>
+    <section class="tool-card" aria-labelledby="what-percent-title"><h2 id="what-percent-title">A는 B의 몇 퍼센트?</h2><form data-what-percent-form><label>값 A<input name="valueA" type="number" step="any" inputmode="decimal" placeholder="20" required /></label><label>값 B<input name="valueB" type="number" step="any" inputmode="decimal" placeholder="100" required /></label><button type="submit">계산하기</button></form><output class="result" data-what-percent-result aria-live="polite">값을 입력해 보세요.</output></section>
+  </div>
+  <section class="tool-info"><h2>사용 방법</h2><ol><li>계산 유형을 선택합니다.</li><li>값을 입력하고 계산하기를 누릅니다.</li></ol><h2>계산 기준</h2><p>특정 값의 퍼센트는 기준값 × 퍼센트 ÷ 100으로 계산합니다. A가 B의 몇 퍼센트인지는 A ÷ B × 100이며 B가 0이면 계산하지 않습니다.</p><h2>예시</h2><p>100의 20%는 20이고, 20은 100의 20%입니다. 소수와 음수도 입력할 수 있습니다.</p><h2>자주 묻는 질문</h2><p><strong>기준값이 0이면?</strong><br />특정 값 계산은 0을 결과로 표시할 수 있습니다.</p></section>
+  <nav class="related-tools" aria-label="관련 도구"><h2>관련 도구</h2><a href="/tools/discount/">할인율 계산기</a><a href="/tools/ratio/">비율 계산기</a></nav>
+</ToolPage>
+<script>
+  const format = (value: number) => Number.isFinite(value) ? Number(value.toFixed(8)).toLocaleString('ko-KR') : '계산할 수 없습니다.';
+  const formOf = document.querySelector<HTMLFormElement>('[data-percent-of-form]'); const resultOf = document.querySelector<HTMLOutputElement>('[data-percent-of-result]');
+  if (!formOf || !resultOf) throw new Error('퍼센트 계산기 요소를 찾을 수 없습니다.');
+  formOf?.addEventListener('submit', (event) => { event.preventDefault(); const data = new FormData(formOf); const base = Number(data.get('base')); const percent = Number(data.get('percent')); resultOf.textContent = Number.isFinite(base) && Number.isFinite(percent) ? format(base * percent / 100) : '유효한 숫자를 입력해 주세요.'; });
+  const formWhat = document.querySelector<HTMLFormElement>('[data-what-percent-form]'); const resultWhat = document.querySelector<HTMLOutputElement>('[data-what-percent-result]');
+  if (!formWhat || !resultWhat) throw new Error('퍼센트 계산기 요소를 찾을 수 없습니다.');
+  formWhat?.addEventListener('submit', (event) => { event.preventDefault(); const data = new FormData(formWhat); const a = Number(data.get('valueA')); const b = Number(data.get('valueB')); resultWhat.textContent = !Number.isFinite(a) || !Number.isFinite(b) ? '유효한 숫자를 입력해 주세요.' : b === 0 ? '값 B는 0일 수 없습니다.' : `${format(a / b * 100)}%`; });
+</script>

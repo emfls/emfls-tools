@@ -1,0 +1,13 @@
+---
+import ToolPage from '../../../components/ToolPage.astro';
+---
+<ToolPage eyebrow="텍스트 · Text" title="글자수 계산기" description="텍스트의 글자 수, 단어 수, 줄 수를 입력과 동시에 확인합니다.">
+  <section class="tool-card tool-card-single"><h2>텍스트 입력</h2><label for="character-input">계산할 텍스트</label><textarea id="character-input" data-character-input rows="9" placeholder="텍스트를 입력해 보세요."></textarea><div class="stats" aria-live="polite"><span>공백 포함 <strong data-with-spaces>0</strong></span><span>공백 제외 <strong data-without-spaces>0</strong></span><span>단어 수 <strong data-word-count>0</strong></span><span>줄 수 <strong data-line-count>0</strong></span></div></section>
+  <section class="tool-info"><h2>사용 방법</h2><p>텍스트를 입력하면 통계가 즉시 갱신됩니다. 단어 수는 연속된 공백을 하나의 구분으로 셉니다.</p><h2>처리 기준</h2><p>JavaScript 문자열 길이 기준으로 공백 포함·제외 글자 수를 계산하고, 줄바꿈 기준으로 줄 수를 계산합니다.</p><h2>예시</h2><p>“안녕 하세요”는 공백 포함 6자, 공백 제외 5자, 단어 2개입니다.</p><h2>자주 묻는 질문</h2><p><strong>한국어와 영어 모두 계산되나요?</strong><br />네. 입력한 문자열 그대로 계산합니다.</p><p><strong>입력한 글이 저장되나요?</strong><br />브라우저 안에서만 처리하며 서버로 전송하지 않습니다.</p></section>
+  <nav class="related-tools" aria-label="관련 도구"><h2>관련 도구</h2><a href="/tools/number-format/">숫자 포맷 변환기</a></nav>
+</ToolPage>
+<script>
+  const input = document.querySelector<HTMLTextAreaElement>('[data-character-input]'); const withSpaces = document.querySelector<HTMLElement>('[data-with-spaces]'); const withoutSpaces = document.querySelector<HTMLElement>('[data-without-spaces]'); const words = document.querySelector<HTMLElement>('[data-word-count]'); const lines = document.querySelector<HTMLElement>('[data-line-count]');
+  if (!input || !withSpaces || !withoutSpaces || !words || !lines) throw new Error('글자수 계산기 요소를 찾을 수 없습니다.');
+  input.addEventListener('input', () => { const text = input.value; withSpaces.textContent = String(text.length); withoutSpaces.textContent = String(text.replace(/\s/g, '').length); words.textContent = text.trim() ? String(text.trim().split(/\s+/).length) : '0'; lines.textContent = text ? String(text.split(/\n/).length) : '0'; });
+</script>

@@ -1,0 +1,16 @@
+---
+import ToolPage from '../../../components/ToolPage.astro';
+
+const categories = {
+  length: { label: '길이', units: { mm: ['밀리미터', 'mm'], cm: ['센티미터', 'cm'], m: ['미터', 'm'], km: ['킬로미터', 'km'], inch: ['인치', 'in'], ft: ['피트', 'ft'] } },
+  weight: { label: '무게', units: { mg: ['밀리그램', 'mg'], g: ['그램', 'g'], kg: ['킬로그램', 'kg'], oz: ['온스', 'oz'], lb: ['파운드', 'lb'] } },
+  volume: { label: '부피', units: { ml: ['밀리리터', 'mL'], l: ['리터', 'L'], cup: ['컵', 'cup'], tbsp: ['큰술', '큰술'], tsp: ['작은술', '작은술'] } },
+  temperature: { label: '온도', units: { c: ['섭씨', '°C'], f: ['화씨', '°F'], k: ['켈빈', 'K'] } },
+};
+---
+<ToolPage eyebrow="변환 · Units" title="단위 변환기" description="길이, 무게, 부피, 온도를 빠르게 변환할 수 있는 무료 단위 변환기입니다.">
+  <section class="tool-card converter-card" aria-labelledby="converter-title"><h2 id="converter-title">단위 선택</h2><div class="converter-fields"><label>변환 종류<select data-category aria-label="변환 종류">{Object.entries(categories).map(([key, category]) => <option value={key}>{category.label}</option>)}</select></label><label>값<input data-value type="number" step="any" inputmode="decimal" placeholder="100" /></label><label>원본 단위<select data-from aria-label="원본 단위"></select></label><span class="swap-mark" aria-hidden="true">→</span><label>변환할 단위<select data-to aria-label="변환할 단위"></select></label></div><output class="result" data-conversion-result aria-live="polite">값과 단위를 선택해 보세요.</output></section>
+  <section class="tool-info"><h2>사용 방법</h2><p>변환 종류와 단위를 고른 뒤 값을 입력하면 결과가 즉시 갱신됩니다. 길이·무게·부피는 기준 단위로 환산하고, 온도는 변환 공식으로 계산합니다.</p><h2>지원 단위와 기준</h2><p>길이: mm, cm, m, km, inch, ft · 무게: mg, g, kg, oz, lb · 부피: mL, L, 컵, 큰술, 작은술 · 온도: °C, °F, K</p><p>부피는 1컵 = 240mL, 1큰술 = 15mL, 1작은술 = 5mL 기준입니다.</p><h2>예시</h2><p>100cm는 1m, 1000g은 1kg, 0°C는 32°F입니다.</p><h2>자주 묻는 질문</h2><p><strong>소수도 변환할 수 있나요?</strong><br />네. 소수 입력을 지원합니다.</p><p><strong>입력값이 서버에 저장되나요?</strong><br />이 도구는 브라우저 안에서만 처리하며 서버로 전송하거나 저장하지 않습니다.</p></section>
+  <nav class="related-tools" aria-label="관련 도구"><h2>관련 도구</h2><a href="/tools/number-format/">숫자 포맷 변환기</a><a href="/tools/ratio/">비율 계산기</a></nav>
+</ToolPage>
+<script src="../../../scripts/unit-converter.ts"></script>

@@ -1,0 +1,9 @@
+---
+import ToolPage from '../../components/ToolPage.astro';
+import { toolCategories, tools } from '../../data/tools';
+---
+<ToolPage eyebrow="도구 모음 · Tools" title="모든 생활 웹도구" description="계산, 날짜·시간, 텍스트·숫자, 랜덤, 변환 도구를 한곳에서 찾아보세요.">
+  <div class="hub-categories">
+    {toolCategories.map((category) => <section class="hub-category" aria-labelledby={`category-${category}`}><h2 id={`category-${category}`}>{category}</h2><div class="hub-tools">{tools.filter((tool) => tool.category === category).map((tool) => <a class="hub-tool" href={tool.href}><strong>{tool.name}</strong><span>{tool.description}</span><span class="hub-arrow" aria-hidden="true">→</span></a>)}</div></section>)}
+  </div>
+</ToolPage>

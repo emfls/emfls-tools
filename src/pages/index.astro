@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { tools } from '../data/tools';
+---
+
+<BaseLayout
+  title="emfls tools — 일상에서 바로 쓰는 생활 웹도구"
+  description="계산, 변환, 날짜, 텍스트 처리를 빠르고 간단하게 해결하는 생활 웹도구입니다."
+>
+  <section class="hero" aria-labelledby="page-title">
+    <p class="eyebrow">emfls tools</p>
+    <h1 id="page-title">일상에서 바로 쓰는<br />빠르고 간단한 생활 웹도구</h1>
+    <p class="intro">필요한 순간에 열어 바로 사용할 수 있는 도구를 준비하고 있습니다.</p>
+  </section>
+
+  <section class="categories" aria-labelledby="categories-title">
+    <h2 id="categories-title">도구 카테고리</h2>
+    <div class="category-list"><span class="category">계산</span><span class="category">날짜/시간</span><span class="category">텍스트/숫자</span><span class="category">랜덤</span><span class="category">변환</span></div>
+  </section>
+  <section class="tool-list" aria-labelledby="tools-title">
+    <h2 id="tools-title">바로 쓰는 도구</h2>
+    <div class="tool-links">
+      {tools.map((tool) => <a class="tool-link" href={tool.href}><strong>{tool.name}</strong><span>{tool.description}</span><span aria-hidden="true">→</span></a>)}
+    </div>
+  </section>
+  <p class="hub-cta"><a class="back-link" href="/tools/">모든 도구 보기 <span aria-hidden="true">→</span></a></p>
+</BaseLayout>
