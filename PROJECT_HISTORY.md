@@ -704,3 +704,17 @@
 
 - P2-2 Tool Content Quality 완료.
 - 다음 단계는 P2-3 metadata·구조화 데이터·내부 링크 SEO 개선.
+
+## 2026-09-15
+
+### 작업
+
+- Production 브라우저 기준 시각 QA를 수행하고 홈페이지 및 404 제목에서 한국어 마지막 글자가 단독 줄로 고립되는 문제를 확인.
+- `src/styles/global.css`에서 홈페이지 히어로 제목의 표시 폭을 넓히고 콘텐츠 페이지 제목에 균형 줄바꿈을 적용.
+
+### 검증
+
+- Tool Hub, 퍼센트 계산기, About, Privacy, Contact, 404를 브라우저에서 확인.
+- 기능 로직·SEO·분석·광고·sitemap 구조는 변경하지 않음.
+- `npm run check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: 성공, 정적 16개 페이지 생성.

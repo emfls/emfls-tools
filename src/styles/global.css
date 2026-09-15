@@ -22,6 +22,8 @@ a { color: inherit; }
 .hero { padding: clamp(4rem, 14vw, 9rem) 0 4rem; }
 .eyebrow { color: var(--muted); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 h1 { max-width: 42rem; margin: 1rem 0; font-size: clamp(2.25rem, 8vw, 4.75rem); line-height: 1.08; letter-spacing: -0.065em; }
+.hero h1 { max-width: 48rem; }
+.content-page h1 { text-wrap: balance; }
 .intro { max-width: 32rem; color: var(--muted); font-size: 1.125rem; line-height: 1.7; }
 .categories { border-top: 1px solid var(--border); padding-block: 2rem 4rem; }
 h2 { font-size: 1rem; margin: 0 0 1rem; }
