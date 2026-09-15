@@ -2,6 +2,24 @@
 
 ## 2026-09-15
 
+### Search Console sitemap 기술 진단
+
+- `https://tools.emfls.com/sitemap-index.xml`: 일반 User-Agent와 Googlebot 모두 HTTP 200, `application/xml`, XML body 정상.
+- Index child URL `https://tools.emfls.com/sitemap-0.xml` 직접 확인: Googlebot HTTP 200, `application/xml`, well-formed `urlset`.
+- Child sitemap URL 15개 모두 `https://tools.emfls.com/` Production URL이며 중복·localhost·pages.dev·404·redirect 없음.
+- 15개 URL 모두 Production HTTP 200 확인.
+- robots.txt Googlebot 요청 HTTP 200, Production sitemap directive 정상, Googlebot 전체 차단 없음.
+- Cloudflare API에서 `tools.emfls.com`에 Access가 활성화되지 않았고 Worker route/Worker custom domain이 없으며, zone hold 없음·DNSSEC disabled·CAA 없음 확인.
+- Search Console 표의 sitemap 상태는 여전히 `가져올 수 없음`이나, Production sitemap 기술 문제는 발견되지 않음.
+- 코드·Cloudflare 설정 변경 없음. 신규 속성/사이트의 Search Console 처리 지연 가능성이 높은 상태로 판단.
+
+### 상태
+
+- Sitemap technical validation: DONE.
+- Search Console sitemap processing success 및 초기 색인: TODO.
+
+## 2026-09-15
+
 ### Google Search Console
 
 - Property: `https://tools.emfls.com/` URL-prefix property.

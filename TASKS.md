@@ -53,4 +53,5 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 
 - [DONE] Google Search Console property / ownership verification
 - [DONE] Production sitemap submission
+- [DONE] Production sitemap technical validation
 - [TODO] Sitemap processing success 및 초기 색인 상태 확인
