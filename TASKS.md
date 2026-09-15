@@ -44,3 +44,7 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 # 배포
 
 - [DONE] Production Deploy / QA — Cloudflare Pages 프로젝트, custom domain 및 Production QA 완료
+
+# Analytics
+
+- [DONE] GA4 G-KRE4Z2HCY6
