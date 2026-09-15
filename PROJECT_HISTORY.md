@@ -15,8 +15,10 @@
 
 - `npm run check`: 0 errors, 0 warnings, 0 hints.
 - `npm run build`: 성공, static 16개 페이지 생성.
-- Production 배포 및 실제 Production HTML 확인은 커밋·Cloudflare 배포 후 진행 예정.
-- AdSense 소유권 확인/심사 요청/승인은 아직 완료로 표시하지 않음.
+- 커밋 `c2fc606`을 `main`에 반영하고 Cloudflare Pages Production HTML에서 스니펫과 Publisher ID를 확인함.
+- `emfls.com` 상세 화면에서 AdSense 리뷰 요청 시간이 2026-09-14 11:32로 표시되며, Google 확인은 며칠에서 2~4주 걸릴 수 있다고 안내됨.
+- AdSense UI에서 소유권 확인 단계는 여전히 표시되므로 소유권 확인 완료로 표시하지 않음.
+- AdSense 승인 전이므로 광고 슬롯과 `ads.txt`는 추가하지 않음.
 
 ## 2026-09-15
 
