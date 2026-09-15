@@ -2,6 +2,25 @@
 
 ## 2026-09-15
 
+### Google Search Console
+
+- Property: `https://tools.emfls.com/` URL-prefix property.
+- 로그인 계정에서 소유권 자동 확인 성공.
+- Production sitemap `sitemap-index.xml` 제출 성공.
+- 제출 표의 현재 상태는 `가져올 수 없음`이며 Google의 sitemap 처리 완료로 간주하지 않음.
+- Homepage URL Inspection 수행: 현재 Google에 등록되지 않았고 아직 알려지지 않은 URL로 표시됨.
+- Homepage 색인 생성 요청을 접수했고 Google 처리 중 상태를 확인함.
+- robots.txt와 sitemap Production 응답은 정상이며, 이번 작업에서 Repo 코드와 기존 DNS record는 수정하지 않음.
+
+### 상태
+
+- Google Search Console property / ownership: DONE.
+- Production sitemap submission: DONE.
+- Sitemap processing success 및 초기 색인 상태: TODO.
+- Tool Hub와 대표 Tool URL Inspection은 이번 단계에서 추가 요청하지 않음.
+
+## 2026-09-15
+
 ### Google Analytics 4 연결
 
 - Measurement ID: `G-KRE4Z2HCY6`.
