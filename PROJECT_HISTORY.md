@@ -2,6 +2,16 @@
 
 ## 2026-09-15
 
+### Naver 인증 URL trailing slash 보완
+
+- Production에서 `public/` 파일 요청이 `trailingSlash: 'always'`에 의해 308으로 변환되는 현상을 확인함.
+- 원본 root 파일과 `public/` 배포 파일은 그대로 유지하고, `src/pages/naver6dde13e69fe8ec25cd17e085c65c2124.html.ts` endpoint를 추가해 정확한 `.html` URL에서 직접 응답하도록 보완함.
+- endpoint 응답은 `naver-site-verification: naver6dde13e69fe8ec25cd17e085c65c2124.html`과 byte-for-byte 동일한 내용을 반환함.
+- `npm run check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: 성공, dist endpoint 파일 및 내용 확인.
+
+## 2026-09-15
+
 ### Naver 사이트 소유확인 파일 배포 보완
 
 - Repo 루트의 `naver6dde13e69fe8ec25cd17e085c65c2124.html` 원본은 수정하지 않음.
