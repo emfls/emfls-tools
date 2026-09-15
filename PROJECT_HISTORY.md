@@ -2,6 +2,25 @@
 
 ## 2026-09-15
 
+### AdSense 및 Root ads.txt 재점검
+
+- AdSense `emfls.com` 상세 상태는 실제 UI에서 `준비 중`으로 표시됨.
+- 소유권 확인 단계가 계속 표시되며, 리뷰 요청은 2026-09-14 11:32에 접수된 상태임.
+- 승인 완료 또는 정책 문제 해결 완료로 추측하지 않음.
+- `https://emfls.com/ads.txt`: HTTP 200, `text/plain`, Publisher ID `pub-8830524482034754` 포함.
+- 기대 항목 `google.com, pub-8830524482034754, DIRECT, f08c47fec0942fa0`와 일치함.
+- 동일 Publisher ID를 사용하는 하위 도메인이므로 `tools.emfls.com/ads.txt`는 별도 생성하지 않음.
+- `tools.emfls.com` Production HTML에서 AdSense script 1회, `ca-pub-8830524482034754` 1회, GA4 유지, GTM 0회를 확인함.
+- 이번 점검에서 `emfls-tools` 코드 변경 없음. 루트 `emfls.com` Repo도 수정하지 않음.
+
+### 상태
+
+- Root ads.txt 확인: DONE.
+- tools.emfls.com 전용 ads.txt: 불필요.
+- AdSense 소유권 확인 및 승인: TODO.
+
+## 2026-09-15
+
 ### AdSense 연결
 
 - AdSense 계정에서 Publisher ID `pub-8830524482034754`와 기존 등록 사이트 `emfls.com`을 확인함.
