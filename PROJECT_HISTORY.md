@@ -2,6 +2,34 @@
 
 ## 2026-09-15
 
+### Production Deploy / QA 완료
+
+- Cloudflare Pages project `emfls-tools` 생성 및 `emfls/emfls-tools` GitHub source 연결.
+- Production branch `main`, build command `npm run build`, output directory `dist` 확인.
+- Deployment `1f6e38c8-b75c-4b63-9066-6d2c9d34f45c` 성공.
+- pages.dev와 `tools.emfls.com` 모두 정상 응답 확인.
+- Custom Domain 상태 `active`, DNS verification `active`, HTTP validation `active` 확인.
+- DNS: `tools.emfls.com CNAME emfls-tools.pages.dev`, proxied.
+
+### Production QA
+
+- Homepage, Tool Hub, Tool 10개, About/Privacy/Contact: 모두 HTTP 200.
+- 존재하지 않는 경로: HTTP 404, custom 404 UI 및 `noindex, nofollow` 확인.
+- 전 페이지 canonical 및 `og:url`: `https://tools.emfls.com/...` 확인.
+- Homepage `WebSite` JSON-LD, Tool 페이지 `BreadcrumbList` JSON-LD 확인.
+- sitemap index/child sitemap 및 robots.txt: HTTP 200, Production URL 사용, 15개 indexable URL 및 404 제외 확인.
+- `/tools/percentage`는 `/tools/percentage/`로 308 redirect.
+- 홈페이지 CSS/favicon 및 페이지 내부 링크 정상, Production asset 오류 없음.
+- 브라우저 대표 기능: 퍼센트 `100의 20% = 20`, 단위 `100cm = 1m` 확인.
+- 모바일 viewport(약 320px)에서 Tool Hub 확인: horizontal scroll 없음, 콘솔 error 없음, 카드/내비게이션 정상 표시.
+
+### 상태
+
+- `Production Deploy / QA`: DONE.
+- 현재 Repo 외 다른 프로젝트, Pages 프로젝트, DNS 레코드는 수정하지 않음.
+
+## 2026-09-15
+
 ### Cloudflare Pages 생성 및 배포
 
 - Cloudflare account: `Qordltkr247@naver.com's Account` (`b09ea15798dde6fe98d4f7ae7b75fb94`)

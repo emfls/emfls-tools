@@ -43,4 +43,4 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 
 # 배포
 
-- [TODO] Production Deploy / QA — Cloudflare Pages 프로젝트 및 custom domain 연결 필요
+- [DONE] Production Deploy / QA — Cloudflare Pages 프로젝트, custom domain 및 Production QA 완료
