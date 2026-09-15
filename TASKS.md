@@ -55,8 +55,7 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 - [DONE] Production sitemap `/sitemap.xml` submission
 - [DONE] Production sitemap `/sitemap.xml` technical validation
 - [DONE] Legacy `/sitemap-index.xml` 301 compatibility redirect
-- [TODO] Search Console `/sitemap.xml` 재제출 및 처리 상태 확인
-- [TODO] Sitemap processing success 및 초기 색인 상태 확인
+- [DONE] Search Console `/sitemap.xml` 재제출 및 처리 상태 확인
 
 # AdSense
 

@@ -2,6 +2,24 @@
 
 ## 2026-09-15
 
+### Baseline v1 최종 작업
+
+- Tools 전용 OG 이미지 `public/og-image.png`를 생성하고 최종 1200×630 PNG로 저장함.
+- `BaseLayout.astro` 기본 fallback을 `https://tools.emfls.com/og-image.png`로 연결했으며 `og:image`와 `twitter:image`, 1200×630 dimensions를 Production HTML에서 확인함.
+- Production `https://tools.emfls.com/og-image.png`: HTTP 200, 실제 PNG 1200×630 확인.
+- Search Console `https://tools.emfls.com/` 속성에서 `sitemap.xml` 제출 완료.
+- Search Console 실제 상태: `성공`, 발견된 페이지 15개, 발견된 동영상 0개.
+- 기존 `sitemap-index.xml` 제출 항목은 Tools 속성에 없어 삭제하지 않음.
+- 회귀 QA: `/`, `/tools/`, `/sitemap.xml`, `/robots.txt`, `/about/`, `/privacy/`, `/contact/` 모두 HTTP 200; 구 sitemap redirect와 sitemap 15개 URL 유지 확인.
+- `npm run check`: 0 errors, 0 warnings, 0 hints. `npm run build`: 성공.
+
+### 상태
+
+- EMFLS Network Baseline v1: DONE.
+- 남은 기능 TODO 없음. AdSense 소유권/승인은 별도 외부 심사 대기 항목임.
+
+## 2026-09-15
+
 ### Tools OG Image 및 Search Console sitemap
 
 - Tools 전용 `public/og-image.png`를 생성함. 최종 크기 1200×630 PNG이며 기존 Tools 색상·미니멀 Utility 방향을 사용함.
