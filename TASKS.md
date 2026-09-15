@@ -75,5 +75,6 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 - [DONE] GA4/AdSense Production custom-domain only loader
 - [DONE] SEO head contract 및 접근성 baseline 보강
 - [DONE] Repo 문서 baseline 정리
-- [TODO] Tools 전용 1200×630 OG image asset 추가
-- [TODO] Search Console `/sitemap.xml` 재제출 및 처리 상태 확인
+- [DONE] Tools 전용 1200×630 OG image asset 추가
+- [DONE] Search Console `/sitemap.xml` 재제출
+- [DONE] Search Console `/sitemap.xml` processing success 확인

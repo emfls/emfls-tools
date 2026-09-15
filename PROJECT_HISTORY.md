@@ -2,6 +2,23 @@
 
 ## 2026-09-15
 
+### Tools OG Image 및 Search Console sitemap
+
+- Tools 전용 `public/og-image.png`를 생성함. 최종 크기 1200×630 PNG이며 기존 Tools 색상·미니멀 Utility 방향을 사용함.
+- `BaseLayout.astro`의 기본 OG fallback을 `/og-image.png`로 연결하고 `og:image`, `og:image:width`, `og:image:height`, `twitter:image`를 적용함.
+- Google Search Console `https://tools.emfls.com/` 속성에서 `sitemap.xml`을 제출함.
+- 제출 직후 UI 상태는 `성공`, 발견된 페이지 15개, 동영상 0개로 표시됨.
+- 기존 `sitemap-index.xml` 제출 항목은 해당 Tools 속성 표에 없어 삭제 작업을 하지 않음.
+
+### 검증
+
+- Production `https://tools.emfls.com/og-image.png`: HTTP 200 및 1200×630 이미지 확인.
+- Production homepage의 absolute `og:image` 및 `twitter:image`가 `https://tools.emfls.com/og-image.png`를 가리키는 것을 확인함.
+- sitemap, robots, canonical, GA4, AdSense 회귀 QA를 수행함.
+- `npm run check` 및 `npm run build` 결과는 커밋 후 재검증 예정.
+
+## 2026-09-15
+
 ### EMFLS Network Baseline v1 Production QA
 
 - Production 배포 성공 및 `https://tools.emfls.com` 기준 Baseline 변경 반영 확인.
