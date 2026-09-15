@@ -11,6 +11,8 @@
 body { margin: 0; min-width: 320px; }
 a { color: inherit; }
 .site-header, .site-main, .site-footer { width: min(100% - 2rem, 60rem); margin-inline: auto; }
+.skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 10; border-radius: 0.5rem; background: #17201d; padding: 0.75rem 1rem; color: #fff; }
+.skip-link:focus { top: 1rem; }
 .site-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; }
 .brand { font-weight: 700; text-decoration: none; letter-spacing: -0.03em; }
 .site-nav, .footer-nav { display: flex; gap: 0.9rem; font-size: 0.8125rem; }
@@ -93,4 +95,7 @@ button:hover { background: #30443d; }
 .back-link:hover, .back-link:focus-visible { text-decoration: underline; }
 @media (max-width: 30rem) {
   .site-header, .site-footer { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }

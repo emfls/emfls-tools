@@ -5,12 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/rename-sitemap.mjs",
+    "build": "astro build",
     "check": "astro check",
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.14.1"
   },
   "devDependencies": {

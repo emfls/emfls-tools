@@ -2,6 +2,24 @@
 
 ## 2026-09-15
 
+### EMFLS Network Baseline v1 정리
+
+- `@astrojs/sitemap` index/child 및 post-build rename hack을 제거하고 `src/pages/sitemap.xml.ts` endpoint로 현재 15개 indexable URL을 `<urlset>`으로 생성함.
+- `trailingSlash: 'always'`를 명시하고 Production canonical 정책을 slash URL로 통일함.
+- GA4 `G-KRE4Z2HCY6`와 AdSense `ca-pub-8830524482034754` loader를 hostname이 `tools.emfls.com`일 때만 동적으로 실행하도록 변경함. localhost, preview, pages.dev, workers.dev에서는 실행하지 않음.
+- SEO head에 선택적 OG image, Twitter metadata, theme-color, jsonLd 계약을 추가함. 실제 Tools OG image asset은 없어 연결하지 않음.
+- skip link, main landmark id, keyboard focus 유지, reduced-motion media query를 보강함. 기존 Tool 로직과 디자인은 변경하지 않음.
+- README, SITE_STRATEGY, DESIGN_SYSTEM, CONTENT_POLICY, LAUNCH_CHECKLIST, REPOSITORY_CONNECTION을 emfls-tools 기준으로 추가함.
+
+### 검증
+
+- `npm run check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: 성공. `dist/sitemap.xml`만 생성되고 index/child sitemap은 생성되지 않음.
+- sitemap urlset, Production URL 15개, robots directive, canonical slash, loader host guard를 로컬 산출물에서 확인함.
+- Production 배포 및 전체 QA는 커밋 후 진행 예정.
+
+## 2026-09-15
+
 ### Sitemap Production 배포 확인
 
 - Cloudflare Pages Production에 커밋 `da50322`가 반영된 것을 확인함.

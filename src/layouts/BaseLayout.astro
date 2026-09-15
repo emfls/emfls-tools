@@ -5,9 +5,11 @@ interface Props {
   title: string;
   description: string;
   noindex?: boolean;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, noindex = false } = Astro.props;
+const { title, description, noindex = false, ogImage, jsonLd } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 const isHomepage = Astro.url.pathname === '/';
 ---
@@ -27,17 +29,34 @@ const isHomepage = Astro.url.pathname === '/';
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-KRE4Z2HCY6"></script>
+    {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site ?? Astro.url.origin)} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={new URL(ogImage, Astro.site ?? Astro.url.origin)} />}
+    <meta name="theme-color" content="#f7f8f5" />
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-KRE4Z2HCY6');
+      if (window.location.hostname === 'tools.emfls.com') {
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-KRE4Z2HCY6';
+        document.head.appendChild(gaScript);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function gtag(){window.dataLayer.push(arguments);};
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-KRE4Z2HCY6');
+        const adsScript = document.createElement('script');
+        adsScript.async = true;
+        adsScript.crossOrigin = 'anonymous';
+        adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830524482034754';
+        document.head.appendChild(adsScript);
+      }
     </script>
-    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830524482034754" crossorigin="anonymous"></script>
-    {isHomepage && <script is:inline type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'emfls tools', url: 'https://tools.emfls.com/' })} />}
+    {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {isHomepage && !jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'emfls tools', url: 'https://tools.emfls.com/' })} />}
   </head>
   <body>
+    <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
     <header class="site-header">
       <a class="brand" href="/" aria-label="emfls tools 홈">emfls tools</a>
       <nav class="site-nav" aria-label="주요 메뉴">
@@ -47,7 +66,7 @@ const isHomepage = Astro.url.pathname === '/';
         <a href="/contact/">Contact</a>
       </nav>
     </header>
-    <main class="site-main">
+    <main id="main-content" class="site-main">
       <slot />
     </main>
     <footer class="site-footer">

@@ -67,3 +67,13 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 - [TODO] AdSense 소유권 확인
 - [DONE] AdSense 심사 요청 상태 확인 — 2026-09-14 요청됨
 - [TODO] AdSense 승인
+
+# EMFLS Network Baseline v1
+
+- [DONE] 단일 `/sitemap.xml` urlset 구조 및 기존 sitemap 301 호환
+- [DONE] `trailingSlash: always` 및 canonical 정책
+- [DONE] GA4/AdSense Production custom-domain only loader
+- [DONE] SEO head contract 및 접근성 baseline 보강
+- [DONE] Repo 문서 baseline 정리
+- [TODO] Tools 전용 1200×630 OG image asset 추가
+- [TODO] Search Console `/sitemap.xml` 재제출 및 처리 상태 확인
