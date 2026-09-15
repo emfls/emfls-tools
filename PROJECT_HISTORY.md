@@ -2,6 +2,18 @@
 
 ## 2026-09-15
 
+### Sitemap Production 배포 확인
+
+- Cloudflare Pages Production에 커밋 `da50322`가 반영된 것을 확인함.
+- `https://tools.emfls.com/sitemap.xml`: HTTP 200, `application/xml`, sitemap index 및 child reference 정상.
+- `https://tools.emfls.com/sitemap-0.xml`: HTTP 200, Production URL 15개 확인.
+- `https://tools.emfls.com/sitemap-index.xml`: HTTP 301, `Location: /sitemap.xml` 확인.
+- `https://tools.emfls.com/robots.txt`: HTTP 200, `Sitemap: https://tools.emfls.com/sitemap.xml` 확인.
+- 기존 페이지·Tool·SEO·GA4·AdSense는 수정하지 않음.
+- 현재 세션에서 Search Console sitemap 제출 화면에 접근할 수 없어 새 `/sitemap.xml` 제출은 TODO로 유지함. 성공으로 추측하지 않음.
+
+## 2026-09-15
+
 ### Sitemap 대표 URL 변경
 
 - 대표 sitemap URL을 `/sitemap-index.xml`에서 `/sitemap.xml`로 변경함.
