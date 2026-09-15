@@ -2,6 +2,31 @@
 
 ## 2026-09-15
 
+### AdSense Readiness QA
+
+- Production `https://tools.emfls.com` 기준으로 Homepage, Tool Hub, 10개 Tool, About, Privacy, Contact, custom 404를 점검.
+- Homepage와 Tool Hub의 역할이 구분되고 실제 10개 Tool 접근이 가능함.
+- 10개 Tool 모두 HTTP 200이며 사용법·처리 기준·예시·FAQ·관련 도구 콘텐츠를 포함.
+- placeholder, lorem ipsum, 빈 카드, 미구현 Tool 링크, 의미 없는 `href="#"` 없음.
+- 전체 주요 내부 링크 broken 0, navigation 정상.
+- Privacy Policy가 GA4 사용 상태와 일치하며 입력값을 Analytics custom event로 보내지 않음.
+- AdSense script(`adsbygoogle`, `pagead2.googlesyndication.com`, `ca-pub-`) 없음.
+- Publisher ID가 없어 `ads.txt`를 생성하지 않음.
+- Production 404는 HTTP 404, custom UI, Home 이동, noindex 확인.
+- canonical/OG/sitemap/robots/GA4 및 기존 Production QA 상태 정상.
+- 모바일 기존 320px Production QA에서 horizontal scroll 없음, Tool Hub·입력 UI·내비게이션 정상.
+- 대표 Production 기능: 퍼센트 `100의 20% = 20`, 단위 `100cm = 1m` 확인.
+- 치명적 console error 및 기본 CSS/favicon 오류 없음.
+
+### 판정
+
+- AdSense Readiness QA: PASS.
+- 현재 AdSense 심사 신청을 진행해도 되는 상태로 판단.
+- 신청 전 필수 수정 사항 없음.
+- AdSense 승인 후 실제 Publisher ID를 확보하면 광고 코드와 `ads.txt`를 별도 작업으로 추가.
+
+## 2026-09-15
+
 ### Search Console sitemap 기술 진단
 
 - `https://tools.emfls.com/sitemap-index.xml`: 일반 User-Agent와 Googlebot 모두 HTTP 200, `application/xml`, XML body 정상.

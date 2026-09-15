@@ -55,3 +55,8 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 - [DONE] Production sitemap submission
 - [DONE] Production sitemap technical validation
 - [TODO] Sitemap processing success 및 초기 색인 상태 확인
+
+# AdSense
+
+- [DONE] AdSense Readiness QA
+- [TODO] AdSense 심사 신청 및 승인 후 광고 코드/ads.txt 설정
