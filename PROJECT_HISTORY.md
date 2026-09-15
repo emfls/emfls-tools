@@ -2,6 +2,17 @@
 
 ## 2026-09-15
 
+### Naver 사이트 소유확인 파일 배포 보완
+
+- Repo 루트의 `naver6dde13e69fe8ec25cd17e085c65c2124.html` 원본은 수정하지 않음.
+- 동일 파일을 `public/naver6dde13e69fe8ec25cd17e085c65c2124.html`에 배치함.
+- root, public, dist 파일의 byte-for-byte 동일성을 확인함.
+- `npm run check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: 성공.
+- Production 반영 후 `https://tools.emfls.com/naver6dde13e69fe8ec25cd17e085c65c2124.html` HTTP 200 및 정확한 인증 응답을 확인할 예정.
+
+## 2026-09-15
+
 ### Baseline v1 최종 작업
 
 - Tools 전용 OG 이미지 `public/og-image.png`를 생성하고 최종 1200×630 PNG로 저장함.
