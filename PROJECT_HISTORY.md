@@ -365,6 +365,13 @@
 
 - `npm run check`: 0 errors, 0 warnings, 0 hints.
 - `npm run build`: 성공, 정적 16개 페이지 생성.
+
+### Final Viewport QA
+
+- Playwright 1.60.0과 설치된 Google Chrome headless로 Production을 320×800, 390×844, 768×1024, 1440×900에 고정해 검증.
+- 대표 페이지들의 `window.innerWidth/innerHeight`, document/body scrollWidth를 확인했으며 모든 viewport에서 가로 overflow 없음.
+- 768px Unit Converter에서 단위 select 텍스트가 잘리던 문제를 converter grid의 최소 열 폭 조정으로 해결하고 동일 viewport에서 재검증.
+- 고정 viewport screenshot을 임시 `/tmp/emfls-tools-viewport/`에 저장. SEO, sitemap, GA4, AdSense 등 기존 인프라는 변경하지 않음.
 - 로컬 산출물에서 Production canonical, OG, WebSite JSON-LD, BreadcrumbList JSON-LD, sitemap, robots.txt 확인.
 - 실제 `https://tools.emfls.com`은 현재 DNS가 해석되지 않아 HTTP 200, HTTPS, custom domain, Cloudflare Pages project, 404 status, 모바일 Production QA를 확인하지 못함.
 - Cloudflare Pages/Wrangler 설정 파일이나 연결된 프로젝트 정보는 저장소에 존재하지 않음.

@@ -40,6 +40,7 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 - [TODO] 모바일 입력·결과 흐름 점검
 - [TODO] 접근성 점검
 - [TODO] Core Web Vitals 점검 및 개선
+- [DONE] Full Visual Design QA / Fixed Viewport QA
 
 # 배포
 
