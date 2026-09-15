@@ -2,6 +2,25 @@
 
 ## 2026-09-15
 
+### Sitemap 대표 URL 변경
+
+- 대표 sitemap URL을 `/sitemap-index.xml`에서 `/sitemap.xml`로 변경함.
+- `@astrojs/sitemap` 자동 생성을 유지하고 `scripts/rename-sitemap.mjs`에서 build 후 `dist/sitemap-index.xml`을 `dist/sitemap.xml`로 rename함.
+- child sitemap `sitemap-0.xml`과 자동 URL 관리는 유지함.
+- `public/robots.txt`의 Sitemap directive를 `https://tools.emfls.com/sitemap.xml`로 변경함.
+- `public/_redirects`에 기존 `/sitemap-index.xml` → `/sitemap.xml` 301 redirect를 추가함.
+- `<link rel=sitemap>` 참조는 프로젝트에 없어 변경하지 않음.
+
+### 검증 및 상태
+
+- `npm run check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: 성공.
+- `dist/sitemap.xml` 및 `dist/sitemap-0.xml` 생성, 기존 `dist/sitemap-index.xml` 미생성 확인.
+- child sitemap URL 15개, Production domain 및 child reference 정상 확인.
+- Search Console 새 sitemap 제출은 Production 배포 후 실제 UI에서 진행함.
+
+## 2026-09-15
+
 ### AdSense 및 Root ads.txt 재점검
 
 - AdSense `emfls.com` 상세 상태는 실제 UI에서 `준비 중`으로 표시됨.

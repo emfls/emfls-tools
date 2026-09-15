@@ -52,8 +52,9 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 # Search Console
 
 - [DONE] Google Search Console property / ownership verification
-- [DONE] Production sitemap submission
-- [DONE] Production sitemap technical validation
+- [DONE] Production sitemap `/sitemap.xml` submission
+- [DONE] Production sitemap `/sitemap.xml` technical validation
+- [DONE] Legacy `/sitemap-index.xml` 301 compatibility redirect
 - [TODO] Sitemap processing success 및 초기 색인 상태 확인
 
 # AdSense
