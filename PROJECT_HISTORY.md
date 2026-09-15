@@ -1,5 +1,22 @@
 # emfls-tools 프로젝트 이력
 
+## 2026-09-15
+
+### Cloudflare Pages / Production QA 재시도
+
+- 로컬 저장소가 `emfls/emfls-tools`, `main` 브랜치인지 확인.
+- `npm run check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: 성공, static 16개 페이지 생성.
+- 인증된 Cloudflare 계정의 Pages 프로젝트 목록에서 `emfls-tools`가 조회되지 않음.
+- `tools.emfls.com`은 기본 DNS 및 공용 resolver에서 A/CNAME 응답이 없어 HTTPS 접근도 실패함.
+
+### 상태
+
+- `Production Deploy / QA`: TODO 유지.
+- 실제 Cloudflare Pages 프로젝트·GitHub 연결·배포·custom domain·HTTPS·Production QA는 확인하지 못함.
+- 다른 Cloudflare Pages 프로젝트나 DNS 레코드는 수정하지 않음.
+- blocker: 현재 사용 가능한 Cloudflare 계정에서 `emfls-tools` Pages 프로젝트와 `tools.emfls.com` DNS 연결이 확인되지 않음.
+
 ## 2026-09-14
 
 ### Production QA 재시도
