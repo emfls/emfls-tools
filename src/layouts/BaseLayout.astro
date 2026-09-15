@@ -34,6 +34,7 @@ const isHomepage = Astro.url.pathname === '/';
       gtag('js', new Date());
       gtag('config', 'G-KRE4Z2HCY6');
     </script>
+    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8830524482034754" crossorigin="anonymous"></script>
     {isHomepage && <script is:inline type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'emfls tools', url: 'https://tools.emfls.com/' })} />}
   </head>
   <body>

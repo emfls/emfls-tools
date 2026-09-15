@@ -2,6 +2,24 @@
 
 ## 2026-09-15
 
+### AdSense 연결
+
+- AdSense 계정에서 Publisher ID `pub-8830524482034754`와 기존 등록 사이트 `emfls.com`을 확인함.
+- `tools.emfls.com` 추가 시 AdSense가 “이미 추가한 사이트”로 처리했으며, 기존 `emfls.com` 사이트 상세의 소유권 확인 대상에 포함된 상태로 판단함.
+- 실제 AdSense UI가 제공한 코드 스니펫을 `src/layouts/BaseLayout.astro`에 공통으로 1회 삽입함.
+- Google Tag Manager 및 별도 Analytics dependency는 사용하지 않음.
+- 광고 슬롯과 `ads.txt`는 추가하지 않음. 실제 Ads.txt 값이 UI에서 제공되지 않았고, 광고 게재 코드는 심사 승인 전 사용하지 않음.
+- GA4와 AdSense 모두 Tool 입력값을 custom event parameter로 전송하지 않음.
+
+### 검증 및 상태
+
+- `npm run check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: 성공, static 16개 페이지 생성.
+- Production 배포 및 실제 Production HTML 확인은 커밋·Cloudflare 배포 후 진행 예정.
+- AdSense 소유권 확인/심사 요청/승인은 아직 완료로 표시하지 않음.
+
+## 2026-09-15
+
 ### AdSense Readiness QA
 
 - Production `https://tools.emfls.com` 기준으로 Homepage, Tool Hub, 10개 Tool, About, Privacy, Contact, custom 404를 점검.

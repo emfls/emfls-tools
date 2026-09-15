@@ -59,4 +59,7 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 # AdSense
 
 - [DONE] AdSense Readiness QA
-- [TODO] AdSense 심사 신청 및 승인 후 광고 코드/ads.txt 설정
+- [DONE] AdSense 사이트 등록 상태 확인 — `emfls.com`에 `tools.emfls.com`이 포함된 것으로 처리됨
+- [DONE] AdSense 코드 스니펫 공통 삽입 — `pub-8830524482034754`
+- [TODO] AdSense 소유권 확인 및 심사 요청
+- [TODO] AdSense 승인
