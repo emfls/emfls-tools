@@ -2,6 +2,22 @@
 
 ## 2026-09-15
 
+### EMFLS Network Baseline v1 Production QA
+
+- Production 배포 성공 및 `https://tools.emfls.com` 기준 Baseline 변경 반영 확인.
+- Homepage, Tool Hub, 10개 Tool, About, Privacy, Contact는 모두 HTTP 200이며 존재하지 않는 URL은 HTTP 404임.
+- slash 없는 `/tools/percentage`는 `/tools/percentage/`로 HTTP 308 redirect됨.
+- Production canonical은 custom domain과 trailing slash 기준으로 확인함.
+- `/sitemap.xml`은 HTTP 200 `application/xml`, `<urlset>` 구조, Production URL 15개를 제공함.
+- `/sitemap-index.xml` 및 `/sitemap-0.xml`은 최종 sitemap 파일로 존재하지 않으며, 구 index URL은 `/sitemap.xml`로 HTTP 301 compatibility redirect됨.
+- `/robots.txt`는 HTTP 200이며 `Sitemap: https://tools.emfls.com/sitemap.xml`을 사용함.
+- Production HTML의 GA4/AdSense loader는 `tools.emfls.com` hostname 조건에서만 동작하도록 확인함. pages.dev 응답에는 guard 코드만 있고 loader 실행 조건은 충족하지 않음.
+- skip link, semantic main landmark, 기존 label/focus, reduced-motion baseline을 확인함.
+- Tools 전용 OG image asset은 아직 없어 metadata에 존재하지 않는 URL을 추가하지 않음.
+- Search Console `/sitemap.xml` 재제출은 현재 세션에서 수행하지 못해 TODO로 유지함.
+
+## 2026-09-15
+
 ### EMFLS Network Baseline v1 정리
 
 - `@astrojs/sitemap` index/child 및 post-build rename hack을 제거하고 `src/pages/sitemap.xml.ts` endpoint로 현재 15개 indexable URL을 `<urlset>`으로 생성함.
