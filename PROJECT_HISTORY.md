@@ -2,6 +2,34 @@
 
 ## 2026-09-15
 
+### Cloudflare Pages 생성 및 배포
+
+- Cloudflare account: `Qordltkr247@naver.com's Account` (`b09ea15798dde6fe98d4f7ae7b75fb94`)
+- `emfls.com` zone이 해당 계정에서 active이며 DNS edit 권한을 확인.
+- Pages project `emfls-tools` 생성.
+- GitHub source: `emfls/emfls-tools`, production branch: `main`.
+- Build command: `npm run build`, output directory: `dist`, root: `/`.
+- Project URL: `https://emfls-tools.pages.dev`.
+- 첫 Production deployment `1f6e38c8-b75c-4b63-9066-6d2c9d34f45c` 성공.
+- `https://emfls-tools.pages.dev/` 및 `/tools/` HTTP 200 확인.
+
+### Custom Domain
+
+- Pages Custom Domain에 `tools.emfls.com` 등록.
+- DNS CNAME `tools.emfls.com -> emfls-tools.pages.dev` 생성, proxied 상태.
+- 외부 DNS에서 Cloudflare IP가 조회되고 Pages verification은 active.
+- 인증서/HTTP validation은 아직 pending이며 `https://tools.emfls.com` 요청은 현재 HTTP 522.
+
+### 상태
+
+- `Production Deploy / QA`: TODO 유지.
+- Pages project와 GitHub 연결 및 pages.dev 배포는 성공.
+- 최종 blocker: Custom Domain certificate/HTTP validation pending으로 Production URL이 522를 반환함.
+- validation이 active가 된 뒤 전체 Production QA(10개 Tool, 404, SEO, sitemap/robots, 모바일)를 수행해야 함.
+- 다른 Pages 프로젝트와 다른 서브도메인 DNS는 수정하지 않음.
+
+## 2026-09-15
+
 ### Cloudflare Pages / Production QA 재시도
 
 - 로컬 저장소가 `emfls/emfls-tools`, `main` 브랜치인지 확인.
