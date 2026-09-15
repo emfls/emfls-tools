@@ -2,6 +2,32 @@
 
 ## 2026-09-15
 
+### Google Analytics 4 연결
+
+- Measurement ID: `G-KRE4Z2HCY6`.
+- `src/layouts/BaseLayout.astro`에 Google 공식 `gtag.js` 방식으로 공통 삽입.
+- Google Tag Manager와 별도 Analytics dependency는 사용하지 않음.
+- 일반 페이지마다 GA4 tag가 1회 삽입되며 Tool별 복사나 입력값 custom event는 없음.
+- `/privacy/`에 GA4, 쿠키/유사 기술, 방문·이용 정보 처리, 사이트 개선 목적을 반영.
+- 회원가입·DB·입력값 서버 저장 없음 및 광고 서비스 미설치 상태는 유지.
+
+### 검증
+
+- `npm run check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: 성공, static 16개 페이지 생성.
+- Production deployment `3d1f18ba-4d79-4e8f-9c70-54ffa4eade32` 성공.
+- Production 일반 페이지에서 `gtag.js` 1개, Measurement ID 2회(스크립트 URL/config), GTM 0개 확인.
+- `https://www.googletagmanager.com/gtag/js?id=G-KRE4Z2HCY6`: HTTP 200 확인.
+- 실제 GA4 관리자 실시간 사용자/수집 데이터는 현재 접근하지 않아 확인 완료로 간주하지 않음.
+
+### 상태
+
+- `GA4 G-KRE4Z2HCY6`: DONE.
+- Production HTML 코드 연결 확인 완료.
+- 실제 Analytics 수집 확인: 별도 관리자 확인 필요.
+
+## 2026-09-15
+
 ### Production Deploy / QA 완료
 
 - Cloudflare Pages project `emfls-tools` 생성 및 `emfls/emfls-tools` GitHub source 연결.
