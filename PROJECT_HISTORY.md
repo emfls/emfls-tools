@@ -1,5 +1,28 @@
 # emfls-tools 프로젝트 이력
 
+## 2026-09-28
+
+### P0 공개 상태·도구 정확성 복구
+
+- `Home`의 “준비 중” 문구를 실제 운영 중인 10개 도구 안내로 바꾸고, `About`을 현재 제공 범위에 맞춰 정리함. 문의 채널이 없는 `Contact`는 이메일이나 향후 연락처를 만들어내지 않고 현재 제약을 명시함.
+- `Privacy`를 production-only GA4/AdSense 태그와 일치시킴. 태그 설치와 실제 광고 노출·승인은 구분하고, 도구 입력을 앱 서버나 GA4 맞춤 이벤트로 보내는 코드가 없음을 명시함. Google 공식 개인정보·AdSense 안내 링크를 추가함.
+- 부피 변환기에서 컵 기준을 분리함: NIST 계량컵 237mL, 미국 영양표시용 컵 240mL, 호주식 컵 250mL. 큰술/작은술은 미국 영양표시 기준 15mL/5mL로 표시하고 각 공식 출처를 연결함.
+- 문자수 계산을 가능한 브라우저에서 Unicode grapheme 단위로 바꾸고 공백 제외·공백 구분 단어 수·줄 끝 빈 줄 포함 기준을 안내함.
+- 시간 계산기에 실제 날짜 입력이 없음을 명시하고 기준 시각에서 이동한 전체 날짜 수를 표시하도록 보강함.
+- `node:test` 기반 `npm test`에 컵 기준·온도 경계·Unicode 문자·공백/줄 계산·복수 날짜 이동 회귀를 추가함.
+- `TASKS.md`의 이미 완료된 P2 콘텐츠/metadata TODO를 정리하고 이번 P0 결과와 브라우저 blocker를 기록함. `LAUNCH_CHECKLIST.md`는 기존 Google sitemap 성공 이력과 아직 미완료인 Naver/Daum/IndexNow/AdSense 작업을 구분함.
+
+#### Verification
+
+- `npm test`: 3개 test group PASS.
+- `npm run check`: 25개 파일, 오류/경고/힌트 0.
+- `npm run build`: 16개 정적 route PASS.
+- `git diff --check`: PASS. 생성 결과에서 대표 8개 route의 H1/title/canonical/OG/Twitter metadata 및 내부 링크, 10개 homepage tool 링크, 관련 sitemap URL을 확인함.
+- Chrome Production에서 기존 Home/Privacy/Unit/Character/Time 동작을 확인해 수정 대상을 재현함. 변경 코드는 아직 push/deploy되지 않아 Production과 로컬 변경을 분리함.
+- 변경 코드 Chrome QA는 `npm run preview -- --host 127.0.0.1`이 sandbox에서 `listen EPERM`으로 거부되어 NOT_RUN. 우회하지 않음. 1440/390/320 viewport visual 및 변경 코드 functional QA는 pending.
+- Branch `codex/tools-p0-recovery`, base/Production commit `779c535699e7b1f0d9c68f285c127423f6a260d2`. Push, deploy, DNS, 외부 검색/광고 계정 변경 없음.
+- Registry의 GA4/AdSense/Search Launch 상태는 코드 작업으로 추정 변경하지 않음: GA4 SET, AdSense REVIEW, Google Search SET / sitemap SUBMITTED, Naver/Daum/IndexNow NOT_SET, Search Launch IN_PROGRESS.
+
 ## 2026-09-15
 
 ### Naver 인증 URL trailing slash 보완

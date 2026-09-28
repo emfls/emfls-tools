@@ -9,5 +9,6 @@
 - 개발: `npm run dev`
 - 검사: `npm run check`
 - 빌드: `npm run build`
+- 테스트: `npm test`
 
 Cloudflare Pages는 `main` 브랜치에서 `npm run build`를 실행하고 `dist`를 배포합니다.

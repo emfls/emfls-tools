@@ -26,9 +26,9 @@
 
 각 도구 페이지 설명, 내부링크, metadata 개선
 
-- [TODO] 도구별 설명·사용법·처리 방식 콘텐츠 작성
-- [TODO] 관련 도구 내부 링크 구성
-- [TODO] 도구별 metadata 개선
+- [DONE] 도구별 설명·사용법·처리 방식 콘텐츠 작성
+- [DONE] 관련 도구 내부 링크 구성
+- [DONE] 도구별 metadata 개선
 - [DONE] P2-1 Tool Hub / Navigation
 - [DONE] P2-2 Tool Content Quality
 - [DONE] P2-3 기술 SEO / Metadata
@@ -78,3 +78,13 @@ Core Web Vitals, 접근성, 모바일 UX 개선
 - [DONE] Tools 전용 1200×630 OG image asset 추가
 - [DONE] Search Console `/sitemap.xml` 재제출
 - [DONE] Search Console `/sitemap.xml` processing success 확인
+
+# 2026-09-28 — P0 Trust / Accuracy Regression
+
+- [DONE] Home/About/Contact의 현재 제공 상태를 실제 페이지와 일치시킴.
+- [DONE] Privacy에 Production-only GA4/AdSense loader와 광고 스크립트 동작 설명을 반영함.
+- [DONE] 단위 변환기의 컵 기준을 NIST 237mL, 미국 영양표시 240mL, 호주 보건 안내 250mL로 분리하고 출처를 연결함.
+- [DONE] 글자 수를 Unicode 문자소 기준으로 세고 공백·단어·줄 계산을 문서화함.
+- [DONE] 시간 계산기가 0일/복수일 오프셋을 모두 표시하도록 보강함.
+- [DONE] 위 회귀에 대한 `npm test`를 추가함.
+- [BLOCKED] 수정 코드의 Chrome preview는 sandbox가 `127.0.0.1:4321` 바인딩을 `EPERM`으로 거부해 실행하지 못함; Production에는 아직 배포되지 않음.
