@@ -6,15 +6,16 @@
 - [x] canonical, robots.txt, sitemap.xml 확인
 - [x] Homepage, Tool Hub, 대표 Tool 모바일 확인
 - [x] GA4/AdSense Production-only loader 확인
-- [x] Google Search Console `/sitemap.xml` 처리 성공 이력 기록 확인 (`PROJECT_HISTORY.md`, 2026-09-15; 이번 사이클에는 Search Console 계정 상태를 다시 확인하지 않음)
-- [ ] Naver Search Advisor 소유권·sitemap 상태 확인
-- [ ] Daum 검색등록 절차 적용 또는 N/A 근거 확인
-- [ ] IndexNow key/endpoint 및 URL 제출 확인
+- [x] Google Search Console `sc-domain:emfls.com`에서 `/sitemap.xml` 성공 확인 (2026-09-29; last read 2026-09-23; 15 pages)
+- [ ] Naver Search Advisor 소유권·sitemap 상태 확인 (로그인 필요; 이 사이트 단계는 중단)
+- [ ] Daum Search 등록 (공식 신청은 이름/이메일 및 필수 동의 필요; 미제출)
+- [x] Daum Sitemap 제출 N/A 확인 (공식 검색등록 폼에 sitemap 기능 없음)
+- [ ] IndexNow key 파일 생성됨 (`public/bbfbbcb5f78a67dbf37152b3bab913e6.txt`); Production 배포와 실제 notification pending
 - [ ] AdSense 승인 확인
 
-## Current checkpoint · 2026-09-28
+## Current checkpoint · 2026-09-29
 
-- Registry: Google Search `SET`, Google Sitemap `SUBMITTED`, GA4 `SET`, AdSense `REVIEW`; Naver, Daum, IndexNow는 아직 `NOT_SET`.
+- Registry: Google Search `SET`, Google Sitemap `SUBMITTED`, Daum Sitemap `N/A`; Naver, Daum Search, IndexNow remain uncompleted.
 - Search Launch remains `IN_PROGRESS` and Sitemap Summary remains `PARTIAL` until remaining applicable states are evidenced.
-- Production is still served from `779c535`; the current recovery changes are local and have not been pushed or deployed.
-- Changed-code Chrome preview could not start because sandbox denied `127.0.0.1:4321` with `EPERM`; Production remains the prior deployed version.
+- Production is served from `779c535`; trust/accuracy updates and IndexNow key file are local and not deployed.
+- Changed-code Chrome preview previously could not start because sandbox denied `127.0.0.1:4321` with `EPERM`; obtain permitted hosted preview before visual sign-off.

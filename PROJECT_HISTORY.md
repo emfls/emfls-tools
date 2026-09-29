@@ -1,5 +1,27 @@
 # emfls-tools 프로젝트 이력
 
+## 2026-09-29
+
+### Foundation/Search Launch 수평 실행
+
+- Owner Priority Override 11에 따라 Site 1의 최소 Foundation/Search Launch만 다룸. `emfls-tools` 단일 저장소에서만 작업하며 다른 사이트 및 루트 프로젝트는 수정하지 않음.
+- 로컬 P0 수정은 현재 Production의 부정확한 “도구 준비 중” 안내와 신뢰/정확성 항목을 보완함. IndexNow key 파일 `public/bbfbbcb5f78a67dbf37152b3bab913e6.txt`를 추가함. 이 공개 파일에는 같은 키 한 줄만 들어 있음.
+- GitHub와 Cloudflare 모두 현재 Production이 `779c535699e7b1f0d9c68f285c127423f6a260d2`임을 확인함. P0 수정과 IndexNow key 파일은 아직 Production에 배포되지 않았으며, 실제 IndexNow notification은 pending임.
+- Google Search Console의 `sc-domain:emfls.com` Sitemaps 화면에서 `https://tools.emfls.com/sitemap.xml`을 확인: 상태 성공, 마지막 읽음 2026-09-23, 발견 15 pages / 0 videos.
+- Naver Search Advisor는 로그인 화면이어서 소유권/사이트맵 제출을 중단함. Daum 공식 등록은 이름·이메일과 필수 개인정보/서비스 동의를 요구해 신청하지 않음. Daum sitemap 제출 기능은 없으므로 Registry를 N/A로 동기화함.
+- Production robots/sitemap/Naver verification static endpoint의 직접 확인은 browser client policy와 로컬 DNS 제한으로 막힘. 기존 정적 라우트 소스와 배포 commit을 기반으로 로컬 QA를 계속하고, Production status로 추정하지 않음.
+
+#### Verification
+
+- `npm test`: 3/3 tests PASS.
+- `npm run check`: 25 files, 0 errors / warnings / hints.
+- `npm run build`: 16 static HTML routes plus `/sitemap.xml` PASS.
+- Generated-output audit: 16 canonical HTML pages; sitemap has 15 production URLs; robots directive points to the canonical sitemap; misleading Home copy is gone; IndexNow key file is emitted at site root and matches the key; PASS.
+- `git diff --check`: PASS.
+- Production Live/Visual QA of changed code is pending a hosted preview. Direct robots/sitemap/static verification-file navigation is blocked by browser client policy; do not work around it. IndexNow notification remains pending until the key is live. Naver and Daum submission remain externally blocked as noted above.
+- Branch `codex/tools-p0-recovery`, parent `779c535699e7b1f0d9c68f285c127423f6a260d2`; local starting HEAD `3d4d151f057f717524923938d9ee3aa25ff9d137`.
+- No push, PR, deployment, or DNS change has occurred yet; no Naver login or Daum personal-data/legal consent was accepted.
+
 ## 2026-09-28
 
 ### P0 공개 상태·도구 정확성 복구
